@@ -1,0 +1,4 @@
+Import-Package: javax.servlet,\
+	com.caucho.hessian.server,\
+	*
+Private-Package: decl.extender

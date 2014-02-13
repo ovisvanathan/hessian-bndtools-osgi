@@ -1,0 +1,16 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:osgi="http://www.springframework.org/schema/osgi"                            
+          osgi:default-timeout="5000">                                                   
+
+<bean 
+	id="consumer" class="decl.client.Client" init-method="startTimer" 
+	destroy-method="stopTimer" lazy-init="false" >
+
+<constructor-arg ref="eventService"/>
+
+</bean>
+
+  <osgi:reference id="myService" interface="decl.api.IService"/>                             
+
+</beans>

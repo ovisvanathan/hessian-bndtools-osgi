@@ -1,0 +1,18 @@
+package decl.client;
+
+import org.osgi.framework.BundleActivator;
+import org.osgi.framework.BundleContext;
+
+import decl.api.IService;
+
+public class Client {
+	private IService service;
+
+	public Client(IService service) throws Exception {
+		// TODO Auto-generated method stub
+			
+		System.out.println(service.execute("hahn"));
+		
+	}
+
+}

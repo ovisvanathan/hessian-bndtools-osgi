@@ -1,0 +1,5 @@
+package decl.extender;
+
+public class HessianListener {
+
+}

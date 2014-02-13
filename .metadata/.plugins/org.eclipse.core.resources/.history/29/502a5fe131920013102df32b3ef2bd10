@@ -1,0 +1,15 @@
+package org.example;
+
+import org.osgi.application.Framework;
+
+import decl.api.IService;
+
+public class ExampleComponent implements IService {
+
+	// TODO: class provided by template
+	public String execute(String name) {
+		
+		return "hello " + name;
+	}
+
+}

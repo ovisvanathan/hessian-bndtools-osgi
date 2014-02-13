@@ -1,0 +1,58 @@
+package hess.extender;
+
+import javax.servlet.Servlet;
+
+import org.osgi.framework.BundleActivator;
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.ServiceReference;
+import org.osgi.service.http.HttpService;
+import org.osgi.service.log.LogService;
+import org.osgi.util.tracker.ServiceTracker;
+
+import com.caucho.hessian.server.HessianServlet;
+
+public class HessianListener  {
+    private HttpService httpService;
+    private ServiceTracker servletsTracker;
+    LogService log = null;  
+   
+    
+    public HessianListener(BundleContext context) {
+    	ServiceReference ref = context.getServiceReference(LogService.class.getName());
+          if (ref != null)
+          {
+              log = (LogService) context.getService(ref);
+              // Use the log...
+              log.log(LogService.LOG_INFO, "log ready : ");
+
+          }
+        this.servletsTracker = new CustomTracker(context, HessianServlet.class.getName()) {
+
+        	@Override
+            public void serviceRegistered(ServiceReference reference) throws Exception {
+      //          Servlet servlet = (Servlet) context.getService(reference);
+                hess.web.TestServlet servlet = new hess.web.TestServlet();
+                String url = (String) reference.getProperty("url");
+                log.log(LogService.LOG_INFO, "registering servlet at url : " + url);
+                httpService.registerServlet(url, servlet, null, null);
+                System.out.println("we get servlet");
+            }
+
+            @Override
+            public void serviceUnregistered(ServiceReference reference, Object service) throws Exception {
+                System.out.println("Unregister " + reference);
+                httpService.unregister((String) reference.getProperty("url"));
+            }
+        };
+    }
+	
+    public void setHttpService(HttpService httpService) throws Exception {
+        System.out.println("http registered");	
+        this.httpService = httpService;
+        this.servletsTracker.open();
+    }
+
+    public void unsetHttpService(ServiceReference reference) {
+        this.servletsTracker.close();
+    }
+}

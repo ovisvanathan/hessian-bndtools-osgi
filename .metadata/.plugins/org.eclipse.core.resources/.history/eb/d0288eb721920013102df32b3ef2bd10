@@ -1,0 +1,4 @@
+Export-Package: decl.api
+Bundle-Name: decl.api
+Bundle-Description: decl api
+Bundle-Version: 1.0

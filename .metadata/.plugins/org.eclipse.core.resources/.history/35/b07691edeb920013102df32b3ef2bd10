@@ -1,0 +1,5 @@
+package decl.client;
+
+public class HttpActivator {
+
+}

@@ -1,0 +1,13 @@
+package org.example;
+
+import decl.api.IService;
+
+public class ExampleComponent implements com.caucho.hessian.server.HessianServlet {
+
+	// TODO: class provided by template
+	public String execute(String name) {
+		
+		return "hello " + name;
+	}
+
+}

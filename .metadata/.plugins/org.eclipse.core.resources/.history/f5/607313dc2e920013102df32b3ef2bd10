@@ -1,0 +1,5 @@
+Include-Resource:src
+Bundle-Activator: decl.client.Client
+Export-Package: decl.client
+Import-Package: decl.api,\
+	*

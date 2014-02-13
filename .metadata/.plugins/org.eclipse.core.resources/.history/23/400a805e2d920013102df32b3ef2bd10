@@ -1,0 +1,22 @@
+-runfw: org.apache.felix.framework;version='[4,5)'
+-runee: JavaSE-1.6
+-runsystemcapabilities: ${native_capability}
+
+-resolve.effective: active
+
+
+-runrequires: osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.shell)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.command)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.felix.framework)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.felix.log)',\
+	osgi.identity;filter:='(osgi.identity=com.springsource.org.aopalliance)',\
+	osgi.identity;filter:='(osgi.identity=org.springframework.aop)',\
+	osgi.identity;filter:='(osgi.identity=org.springframework.asm)',\
+	osgi.identity;filter:='(osgi.identity=org.springframework.beans)',\
+	osgi.identity;filter:='(osgi.identity=org.springframework.context)',\
+	osgi.identity;filter:='(osgi.identity=org.springframework.context.support)',\
+	osgi.identity;filter:='(osgi.identity=org.springframework.core)',\
+	osgi.identity;filter:='(osgi.identity=org.springframework.expression)',\
+	osgi.identity;filter:='(osgi.identity=decl.api)',\
+	osgi.identity;filter:='(osgi.identity=decl.comp)'
+-resolve: auto

@@ -1,0 +1,6 @@
+Include-Resource:src
+Import-Package: com.caucho.hessian.server,\
+	decl.api,\
+	*
+Private-Package: decl.client
+Include-Resource:src

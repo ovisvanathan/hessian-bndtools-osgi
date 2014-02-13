@@ -1,0 +1,11 @@
+Private-Package: org.example
+Service-Component: *
+Include-Resource:src
+-buildpath: osgi.core,\
+	osgi.cmpn,\
+	biz.aQute.bnd.annotation,\
+	junit.osgi
+Export-Package: org.example
+Import-Package: com.caucho.hessian;version=4.0.37,\
+	com.caucho.hessian.server;version=4.0.37,\
+	*

@@ -1,0 +1,48 @@
+package hess.client;
+
+import hess.api.IService;
+
+import java.net.MalformedURLException;
+
+import org.osgi.framework.ServiceException;
+import org.springframework.beans.BeansException;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
+
+import com.caucho.hessian.client.HessianProxyFactory;
+
+public class HessClient implements ApplicationContextAware {
+	
+	static ApplicationContext ctx;
+	
+	 public static void main(String[] args) throws MalformedURLException, ServiceException {
+		 		 
+		 FileSystemXmlApplicationContext ctx = 
+			      new FileSystemXmlApplicationContext("c:/users/omprakash/workspaceg/hess.client/bin/META-INF/spring/applicationContext.xml");
+			
+		 	System.out.println(" props = " + ctx.getBean("props"));
+		 	
+	        HessianProxyFactory factory = new HessianProxyFactory();
+	        IService service = (IService) factory.create(IService.class, "http://localhost:8080/jtunisie");
+	        System.out.println(service.execute("omar"));
+	        
+		 	
+		 	/*
+		 	IService service = (IService) ctx.getBean("helloWorldService");
+		 	 
+		    String welcomeMessage = service.execute("dees");
+		 
+		    System.out.println(welcomeMessage);
+		    */
+	    }
+
+	@Override
+	public void setApplicationContext(ApplicationContext arg0)
+			throws BeansException {
+		// TODO Auto-generated method stub
+		this.ctx = arg0;
+	 	System.out.println("ctx = " + ctx);
+		
+	}
+}

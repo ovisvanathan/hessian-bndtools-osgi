@@ -1,0 +1,4 @@
+Include-Resource:src
+Import-Package: decl.api,\
+	*
+Private-Package: decl.client

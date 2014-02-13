@@ -1,0 +1,81 @@
+package decl.client;
+
+import org.osgi.framework.BundleActivator;
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.ServiceReference;
+import org.osgi.service.log.LogService;
+import org.osgi.util.tracker.ServiceTracker;
+
+import decl.api.IService;
+
+public class ClientActivator  implements BundleActivator  {
+	 private Client consumer;
+	 LogService logService;
+	 ServiceTracker apiTracker;
+
+	 ServiceTracker logServiceTracker;
+	 
+	    @Override
+	    public void start(BundleContext bundleContext) throws Exception {
+	      /*
+	    	ServiceReference reference = 
+	        		bundleContext.getServiceReference(IService.class.getName());
+	 
+	        consumer = new Client((IService) bundleContext.getService(reference));
+	        consumer.startTimer();
+		*/
+	    	 apiTracker = new ServiceTracker(bundleContext, IService.class.getName(), null) {
+	   	      
+	   		  public void removedService(ServiceReference reference, Object service) {
+	   	        // HTTP service is no longer available, unregister our resources...
+	   	        try {
+	  // 	           ((IService) service).unregister("/static");
+	   	        } catch (IllegalArgumentException exception) {
+	   	           // Ignore; servlet registration probably failed earlier on...
+	   	        }
+	   	      }
+
+	   	      public Object addingService(ServiceReference reference) {
+	   	        // HTTP service is available, register our resources...
+	   	        IService httpService = (IService) bundleContext.getService(reference);
+	   	        /*
+	   	        TestServlet testservlet = new TestServlet(); 
+	   	        try {
+	   	          httpService.registerServlet("/felixhttp", testservlet, null, null);
+	   	        } catch (Exception exception) {
+	   	          exception.printStackTrace();
+	   	        }
+	   	        */
+	   	        return httpService;
+	   	      }
+	   	    };
+	   	    // start tracking all HTTP services...
+	   	    apiTracker.open();
+	   	    
+	   	    
+            IService  iserv = (IService) apiServiceTracker.getService();
+            
+            
+	     // create a tracker and track the log service
+            logServiceTracker =
+                new ServiceTracker(bundleContext, LogService.class.getName(), null);
+            logServiceTracker.open();
+             
+            // grab the service
+            logService = (LogService) logServiceTracker.getService();
+     
+            if(logService != null)
+                logService.log(LogService.LOG_INFO, "Yee ha, I'm logging!");
+    
+            if(iserv != null)
+            	logService.log(LogService.LOG_INFO, iserv.execute("aloha"));
+            
+            
+            
+	    }
+	 
+	    @Override
+	    public void stop(BundleContext bundleContext) throws Exception {
+	        consumer.stopTimer();
+	    }
+}

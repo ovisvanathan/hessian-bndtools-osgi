@@ -1,0 +1,3 @@
+Export-Package: decl.api
+Bundle-Name: decl.api
+Include-Resource:src

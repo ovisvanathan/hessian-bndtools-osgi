@@ -1,0 +1,3 @@
+Import-Package: javax.servlet,\
+	com.caucho.hessian.server;version=4.0.37,\
+	*

@@ -1,0 +1,24 @@
+package decl.client;
+
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.ServiceReference;
+
+import decl.api.IService;
+
+public class ClientActivator {
+	 private Client consumer;
+	 
+	    @Override
+	    public void start(BundleContext bundleContext) throws Exception {
+	        ServiceReference reference = 
+	        		bundleContext.getServiceReference(IService.class.getName());
+	 
+	        consumer = new Client((IService) bundleContext.getService(reference));
+	        consumer.startTimer();
+	    }
+	 
+	    @Override
+	    public void stop(BundleContext bundleContext) throws Exception {
+	        consumer.stopTimer();
+	    }
+}

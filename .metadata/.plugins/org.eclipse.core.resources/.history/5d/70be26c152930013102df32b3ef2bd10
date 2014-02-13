@@ -1,0 +1,7 @@
+Include-Resource:src
+Import-Package: com.caucho.hessian.server;version=4.0.37,\
+	decl.api,\
+	*
+Private-Package: decl.client
+Bundle-Activator: decl.client.HttpActivator
+Include-Resource:src

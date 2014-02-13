@@ -1,0 +1,40 @@
+-runfw: org.apache.felix.framework;version='[4,5)'
+-runee: JavaSE-1.6
+-runsystemcapabilities: ${native_capability}
+
+-resolve.effective: active
+
+
+-runrequires: osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.shell)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.command)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.felix.framework)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.felix.log)',\
+	osgi.identity;filter:='(osgi.identity=com.springsource.org.aopalliance)',\
+	osgi.identity;filter:='(osgi.identity=org.springframework.aop)',\
+	osgi.identity;filter:='(osgi.identity=org.springframework.asm)',\
+	osgi.identity;filter:='(osgi.identity=org.springframework.beans)',\
+	osgi.identity;filter:='(osgi.identity=org.springframework.context)',\
+	osgi.identity;filter:='(osgi.identity=org.springframework.context.support)',\
+	osgi.identity;filter:='(osgi.identity=org.springframework.core)',\
+	osgi.identity;filter:='(osgi.identity=org.springframework.expression)',\
+	osgi.identity;filter:='(osgi.identity=decl.api)',\
+	osgi.identity;filter:='(osgi.identity=decl.comp)',\
+	osgi.identity;filter:='(osgi.identity=com.springsource.org.apache.commons.logging)',\
+	osgi.identity;filter:='(osgi.identity=decl.client)'
+-resolve: auto
+-runbundles: com.springsource.org.aopalliance;version='[1.0.0,1.0.1)',\
+	com.springsource.org.apache.commons.logging;version='[1.1.1,1.1.2)',\
+	decl.api;version=latest,\
+	decl.client;version=latest,\
+	decl.comp;version=latest,\
+	org.apache.felix.gogo.command;version='[0.12.0,0.12.1)',\
+	org.apache.felix.gogo.runtime;version='[0.10.0,0.10.1)',\
+	org.apache.felix.gogo.shell;version='[0.10.0,0.10.1)',\
+	org.apache.felix.log;version='[1.0.1,1.0.2)',\
+	org.springframework.aop;version='[3.0.0,3.0.1)',\
+	org.springframework.asm;version='[3.0.0,3.0.1)',\
+	org.springframework.beans;version='[3.0.0,3.0.1)',\
+	org.springframework.context;version='[3.0.0,3.0.1)',\
+	org.springframework.context.support;version='[3.0.0,3.0.1)',\
+	org.springframework.core;version='[3.0.0,3.0.1)',\
+	org.springframework.expression;version='[3.0.0,3.0.1)'

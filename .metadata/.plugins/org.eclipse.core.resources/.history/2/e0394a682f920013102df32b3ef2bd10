@@ -1,0 +1,36 @@
+package decl.client;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.Timer;
+
+import decl.api.IService;
+
+public class Client implements ActionListener {
+	private IService service;
+	private final Timer timer;
+	
+	public Client(IService service) throws Exception {
+		// TODO Auto-generated method stub
+		this.service = service;	
+		timer = new Timer(1000, this);
+		System.out.println(service.execute("hahn"));
+		
+	}
+
+	  public void startTimer(){
+	        timer.start();
+	    }
+	 
+	    public void stopTimer() {
+	        timer.stop();
+	    }
+	 
+	    @Override
+	    public void actionPerformed(ActionEvent e) {
+	        service.hello();
+	    }
+	    
+
+}

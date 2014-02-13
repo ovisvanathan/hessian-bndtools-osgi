@@ -1,0 +1,20 @@
+package decl.client;
+
+import org.osgi.framework.BundleActivator;
+import org.osgi.framework.BundleContext;
+
+import decl.api.IService;
+
+public class Client {
+	private IService service;
+	private final Timer timer;
+	
+	public Client(IService service) throws Exception {
+		// TODO Auto-generated method stub
+		this.service = service;	
+		timer = new Timer(1000, this);
+		System.out.println(service.execute("hahn"));
+		
+	}
+
+}
