@@ -28,8 +28,7 @@ Om Visvanathan (OVisvanathan@meghrules.com)
  * This file is part of the Colander Business Rules Project of Meghrules.com.
  * Copyright (C) 2012-2020 Meghrules.com. Meghrules.com, Meghrules.in, Meghrules.io
  * and other internet sites as well as Mamallansoft.com are owned by 
- * Om Visvanathan Techmologies llc. 
- * 
+ * Om Visvanathan Technologies llc. 
  ******************************************************************************/
 
 
