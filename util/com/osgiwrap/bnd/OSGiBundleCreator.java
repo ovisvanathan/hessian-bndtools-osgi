@@ -134,9 +134,7 @@ public class OSGiBundleCreator  {
 		target.setName("jarwrap");
 		target.setProject(project);
 	    target.addTask(wrapTask);
-
-		System.out.println("target done wrapTask= "+wrapTask);
-
+		
 	    wrapTask.setProject(project);
 	   	    
 	    File destDir = new File(this.destDir);
@@ -152,19 +150,12 @@ public class OSGiBundleCreator  {
 
 		jarSet.setDir(new File(this.jarsDir));
 		
-		System.out.println("FileSet dir = " + jarSet.getDir());
-
 	    FileSelector selector = new FileSelector() {
 	    
 			public boolean isSelected(File baseDir, String fileName, File file)
 				throws BuildException {
 
-				System.out.println("FileSelector baseDir = " + baseDir);
-
-				System.out.println("FileSelector fileName = " + fileName);
-
 				if (fileName.endsWith(".jar") || fileName.endsWith(".war")) {
-					System.out.println("include file " + fileName + " in baseDir " + baseDir);
 					return true;
 				}
 				else {
