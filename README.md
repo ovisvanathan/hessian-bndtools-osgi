@@ -11,11 +11,10 @@ The basis for this code is the jroller article available at http://www.jroller.c
 
 License
 =======
-This software is licensed using the GPL v2.0 license which can be obtained from http://www.gnu.org/licenses/gpl-2.0.html
 
 Committers
 ==========
-Om.Viswanathan (Om.Viswanathan@concentricsys.com)
+Om Visvanathan (OVisvanathan@meghrules.com)
 
 
 
