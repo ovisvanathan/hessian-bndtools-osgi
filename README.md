@@ -11,7 +11,7 @@ The basis for this code is the jroller article available at http://www.jroller.c
 
 An OSGI bundlor utility class is also available in the util folder that runs the BndWrap ANT Task from java.The usage is 
 
-"java OSGIBundleCreator <jarsdir> <definitionsdir> <destinationdir>"
+"java OSGIBundleCreator \<jarsdir\> \<definitionsdir\> \<destinationdir\>"
 
 License
 =======
